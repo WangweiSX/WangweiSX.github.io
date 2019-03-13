@@ -7,23 +7,20 @@
 
     {% include header.html %}
 
-    <div class="page-content">
-      <div class="wrapper">
         {{ content }}
-      </div>
-    </div>
 
     {% include footer.html %}
-
-    <script>
-      $(window).scroll(function() {
-        if ($('body').scrollTop() !== 0) {
-          $('header').addClass('sticky');
-        } else {
-          $('header').removeClass('sticky');
-        }
+    {% include backToTop.html %}
+    <script src="{{ " /js/main.js " | prepend: site.baseurl }}" charset="utf-8"></script>
+    <script src="{{ " /js/smooth-scroll.min.js " | prepend: site.baseurl }}" charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
       });
     </script>
+    <!-- <script src="{{ " /js/scroll.min.js " | prepend: site.baseurl }}" charset="utf-8"></script> -->
   </body>
 
 </html>
